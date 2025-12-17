@@ -6,6 +6,30 @@
     <title>NeonWMS - Przyszłość Magazynu</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styl sprawiający, że całe kafelki są klikalne */
+        a.card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: transform 0.3s;
+        }
+        a.card-link:hover {
+            transform: translateY(-5px);
+        }
+        /* Nadpisanie domyślnego hovera karty, aby uniknąć podwójnego efektu */
+        a.card-link .card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: border-color 0.3s; /* Tylko kolor obramowania */
+            transform: none !important; /* Wyłączamy transformację na samej karcie, bo jest na linku */
+        }
+        a.card-link:hover .card {
+            border-color: var(--primary);
+        }
+    </style>
 </head>
 <body>
 
@@ -13,9 +37,10 @@
         <div class="logo">NeonWMS</div>
         <nav>
             <ul>
-                <li><a href="#about">O nas</a></li>
-                <li><a href="#features">Funkcje</a></li>
-                <li><a href="#contact">Kontakt</a></li>
+                <li><a href="demo.html">Panel Główny</a></li>
+                <li><a href="products.html">Produkty</a></li>
+                <li><a href="shipments.html">Wydania</a></li>
+                <li><a href="clients.html">Klienci</a></li>
             </ul>
         </nav>
         <a href="demo.html" class="btn btn-primary">Uruchom Demo</a>
@@ -29,32 +54,67 @@
         </div>
     </section>
 
+    <section id="features" class="section fade-in">
+        <h2 class="section-title">Dostępne Moduły</h2>
+        <div class="grid-3">
+            
+            <a href="products.html" class="card-link">
+                <div class="card">
+                    <h3 style="color: var(--accent-cyan); margin-bottom: 15px;">📦 Baza Produktów</h3>
+                    <p>Pełny inwentarz, stany magazynowe, edycja cen i lokalizacji towarów.</p>
+                    <span class="btn" style="margin-top: 20px; background: rgba(0, 212, 255, 0.1); color: var(--accent-cyan); width: 100%; text-align: center;">Przejdź do produktów</span>
+                </div>
+            </a>
+
+            <a href="shipments.html" class="card-link">
+                <div class="card">
+                    <h3 style="color: var(--primary); margin-bottom: 15px;">🚚 Wydania i Kurierzy</h3>
+                    <p>Rejestr wysyłek, statusy dostaw, generowanie dokumentów WZ.</p>
+                    <span class="btn" style="margin-top: 20px; background: rgba(108, 93, 211, 0.1); color: var(--primary); width: 100%; text-align: center;">Zobacz wydania</span>
+                </div>
+            </a>
+
+            <a href="clients.html" class="card-link">
+                <div class="card">
+                    <h3 style="color: var(--accent-pink); margin-bottom: 15px;">👥 Klienci (CRM)</h3>
+                    <p>Baza kontrahentów B2B i B2C, historia zamówień i dane kontaktowe.</p>
+                    <span class="btn" style="margin-top: 20px; background: rgba(255, 75, 145, 0.1); color: var(--accent-pink); width: 100%; text-align: center;">Baza klientów</span>
+                </div>
+            </a>
+
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="settings.html" style="color: var(--text-muted); text-decoration: underline; font-size: 0.9rem;">Przejdź do ustawień systemu</a>
+        </div>
+    </section>
+
     <section id="about" class="section fade-in">
-        <h2 class="section-title">O Systemie</h2>
+        <h2 class="section-title">Dlaczego NeonWMS?</h2>
         <div class="grid-3">
             <div class="card">
-                <h3 style="color: var(--accent-pink)">01. Nowoczesny UI</h3>
-                <p>Interfejs inspirowany najnowszymi trendami dark mode. Przejrzysty, szybki i przyjemny dla oka.</p>
+                <h3 style="color: var(--text-main)">01. Nowoczesny UI</h3>
+                <p style="color: var(--text-muted)">Interfejs inspirowany najnowszymi trendami dark mode. Przejrzysty, szybki i przyjemny dla oka.</p>
             </div>
             <div class="card">
-                <h3 style="color: var(--accent-cyan)">02. Bez Instalacji</h3>
-                <p>System działa w przeglądarce. Twoje dane są bezpiecznie przechowywane lokalnie.</p>
+                <h3 style="color: var(--text-main)">02. Szybkość</h3>
+                <p style="color: var(--text-muted)">System działa błyskawicznie w przeglądarce, bez konieczności instalowania ciężkiego oprogramowania.</p>
             </div>
             <div class="card">
-                <h3 style="color: var(--primary)">03. Pełna Kontrola</h3>
-                <p>Śledź przyjęcia, wydania i stany magazynowe za pomocą interaktywnych wykresów.</p>
+                <h3 style="color: var(--text-main)">03. Pełna Kontrola</h3>
+                <p style="color: var(--text-muted)">Śledź przyjęcia, wydania i stany magazynowe za pomocą interaktywnych wykresów w panelu demo.</p>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="section fade-in" style="text-align: center;">
+    <section id="contact" class="section fade-in" style="text-align: center; margin-bottom: 50px;">
         <h2 class="section-title">Skontaktuj się</h2>
         <p>Jesteś zainteresowany wdrożeniem? Napisz do nas.</p>
         <a href="mailto:kontakt@neonwms.pl" class="btn" style="border: 1px solid var(--primary); margin-top: 20px;">Napisz wiadomość</a>
     </section>
 
-    <footer style="text-align: center; padding: 20px; color: var(--text-muted); font-size: 0.9rem;">
-        &copy; 2024 NeonWMS Project. Hosted on GitHub Pages.
+    <footer style="text-align: center; padding: 20px; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05);">
+        &copy; 2024 NeonWMS Project.
     </footer>
 
     <script src="script.js"></script>

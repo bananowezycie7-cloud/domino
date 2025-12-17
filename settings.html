@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ustawienia - NeonWMS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Dodatkowy mały styl dla toggle switcha tylko na tej stronie */
+        .toggle-row { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .switch { position: relative; display: inline-block; width: 40px; height: 20px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #333; transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--primary); }
+        input:checked + .slider:before { transform: translateX(20px); }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo" style="margin-bottom: 40px;">NeonWMS</div>
+            <ul class="sidebar-menu">
+                <li><a href="demo.html">Panel Główny</a></li>
+                <li><a href="products.html">Produkty</a></li>
+                <li><a href="shipments.html">Wydania</a></li>
+                <li><a href="clients.html">Klienci (CRM)</a></li>
+                <li><a href="settings.html" class="active">Ustawienia</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <header style="background: transparent; padding: 0; margin-bottom: 30px;">
+                <h2>Ustawienia Systemu</h2>
+            </header>
+
+            <div class="grid-3" style="grid-template-columns: 1fr 1fr;">
+                
+                <div class="card">
+                    <h3 style="margin-bottom: 20px;">Profil Magazyniera</h3>
+                    <form>
+                        <label>Imię i Nazwisko</label>
+                        <input type="text" class="form-control" value="Admin Demo">
+                        
+                        <label>Adres E-mail</label>
+                        <input type="email" class="form-control" value="admin@neonwms.pl">
+                        
+                        <label>Rola w systemie</label>
+                        <input type="text" class="form-control" value="Administrator" disabled style="opacity: 0.5;">
+                        
+                        <button class="btn btn-primary" style="margin-top: 15px;">Zapisz zmiany</button>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <h3 style="margin-bottom: 20px;">Preferencje Aplikacji</h3>
+                    
+                    <div class="toggle-row">
+                        <span>Powiadomienia E-mail</span>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="toggle-row">
+                        <span>Dźwięki systemowe</span>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="toggle-row">
+                        <span>Automatyczne kopie zapasowe</span>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <h4 style="margin-bottom: 10px; color: var(--accent-pink);">Strefa Niebezpieczna</h4>
+                        <button class="btn" style="background: rgba(255, 75, 145, 0.1); color: var(--accent-pink); width: 100%;">Wyczyść całą bazę danych</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

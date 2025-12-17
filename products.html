@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produkty - NeonWMS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo" style="margin-bottom: 40px;">NeonWMS</div>
+            <ul class="sidebar-menu">
+                <li><a href="demo.html">Panel Główny</a></li>
+                <li><a href="products.html" class="active">Produkty</a></li>
+                <li><a href="shipments.html">Wydania</a></li>
+                <li><a href="clients.html">Klienci (CRM)</a></li>
+                <li><a href="settings.html">Ustawienia</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <header style="background: transparent; padding: 0; margin-bottom: 30px; display:flex; justify-content:space-between; align-items: center;">
+                <h2>Baza Produktów</h2>
+                <button class="btn btn-primary">+ Dodaj Nowy Produkt</button>
+            </header>
+
+            <div class="card" style="margin-bottom: 30px; display: flex; gap: 20px; align-items: flex-end;">
+                <div style="flex: 1;">
+                    <label style="font-size: 0.9rem; color: var(--text-muted);">Szukaj produktu</label>
+                    <input type="text" class="form-control" placeholder="Nazwa, EAN lub SKU..." style="margin-bottom: 0;">
+                </div>
+                <div style="width: 200px;">
+                    <label style="font-size: 0.9rem; color: var(--text-muted);">Kategoria</label>
+                    <select class="form-control" style="margin-bottom: 0;">
+                        <option>Wszystkie</option>
+                        <option>Elektronika</option>
+                        <option>Akcesoria</option>
+                    </select>
+                </div>
+                <button class="btn" style="background: #333;">Filtruj</button>
+            </div>
+
+            <div class="inventory-panel" style="margin-top: 0;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>SKU</th>
+                            <th>Nazwa Produktu</th>
+                            <th>Kategoria</th>
+                            <th>Lokalizacja</th>
+                            <th>Stan</th>
+                            <th>Cena Netto</th>
+                            <th>Akcja</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="color: var(--text-muted);">ELE-001</td>
+                            <td style="font-weight: 600;">Laptop Gamingowy X5</td>
+                            <td>Elektronika</td>
+                            <td>Regał A-12</td>
+                            <td>5 szt.</td>
+                            <td>4500.00 zł</td>
+                            <td><button style="background:none; border:none; color: var(--accent-cyan); cursor: pointer;">Edytuj</button></td>
+                        </tr>
+                        <tr>
+                            <td style="color: var(--text-muted);">ACC-042</td>
+                            <td style="font-weight: 600;">Mysz Bezprzewodowa</td>
+                            <td>Akcesoria</td>
+                            <td>Regał B-05</td>
+                            <td>120 szt.</td>
+                            <td>150.00 zł</td>
+                            <td><button style="background:none; border:none; color: var(--accent-cyan); cursor: pointer;">Edytuj</button></td>
+                        </tr>
+                        <tr>
+                            <td style="color: var(--text-muted);">PAR-101</td>
+                            <td style="font-weight: 600;">Karta Graficzna RTX</td>
+                            <td>Części</td>
+                            <td>Sejf S-1</td>
+                            <td>2 szt.</td>
+                            <td>3200.00 zł</td>
+                            <td><button style="background:none; border:none; color: var(--accent-cyan); cursor: pointer;">Edytuj</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

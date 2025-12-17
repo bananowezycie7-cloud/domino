@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klienci - NeonWMS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo" style="margin-bottom: 40px;">NeonWMS</div>
+            <ul class="sidebar-menu">
+                <li><a href="demo.html">Panel Główny</a></li>
+                <li><a href="products.html">Produkty</a></li>
+                <li><a href="shipments.html">Wydania</a></li>
+                <li><a href="clients.html" class="active">Klienci (CRM)</a></li>
+                <li><a href="settings.html">Ustawienia</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <header style="background: transparent; padding: 0; margin-bottom: 30px; display:flex; justify-content: space-between;">
+                <h2>Baza Kontrahentów</h2>
+                <button class="btn btn-primary">Dodaj Klienta</button>
+            </header>
+
+            <div class="grid-3">
+                <div class="card">
+                    <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:15px;">
+                        <h3 style="color: var(--accent-cyan)">TechSpire Sp. z o.o.</h3>
+                        <span class="status-badge status-ok">VIP</span>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 5px;">NIP: 123-456-78-90</p>
+                    <p style="margin-bottom: 20px;">ul. Prosta 5, 00-001 Warszawa</p>
+                    <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Ostatnie zamówienie:</p>
+                        <strong>24 Paź 2024 (12 500 zł)</strong>
+                    </div>
+                    <button class="btn" style="width:100%; margin-top:20px; background: #333;">Szczegóły</button>
+                </div>
+
+                <div class="card">
+                    <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:15px;">
+                        <h3 style="color: white">Jan Kowalski</h3>
+                        <span class="status-badge" style="background:rgba(255,255,255,0.1); color:white">Detal</span>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 5px;">tel: +48 500 600 700</p>
+                    <p style="margin-bottom: 20px;">ul. Kwiatowa 7, Kraków</p>
+                    <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Ostatnie zamówienie:</p>
+                        <strong>20 Paź 2024 (150 zł)</strong>
+                    </div>
+                    <button class="btn" style="width:100%; margin-top:20px; background: #333;">Szczegóły</button>
+                </div>
+
+                <div class="card">
+                    <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:15px;">
+                        <h3 style="color: var(--primary)">Global Corp</h3>
+                        <span class="status-badge status-ok">B2B</span>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 5px;">NIP: 999-888-77-66</p>
+                    <p style="margin-bottom: 20px;">Aleje Jerozolimskie 100, WWA</p>
+                    <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Ostatnie zamówienie:</p>
+                        <strong>23 Paź 2024 (2 100 zł)</strong>
+                    </div>
+                    <button class="btn" style="width:100%; margin-top:20px; background: #333;">Szczegóły</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
