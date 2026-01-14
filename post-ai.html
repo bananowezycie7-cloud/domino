@@ -1,0 +1,97 @@
+<link rel="stylesheet" href="style.css">
+<style>
+    /* Animacja wejścia dla całej sekcji */
+    .section {
+        animation: fadeIn 0.8s ease-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Efekt dla słupków wykresu */
+    .bar {
+        transition: transform 0.3s ease, filter 0.3s ease;
+        cursor: pointer;
+        transform-origin: bottom;
+    }
+    .bar:hover {
+        transform: scaleY(1.1);
+        filter: brightness(1.2);
+    }
+
+    .article-text {
+        line-height: 1.6;
+        color: var(--text-color);
+        margin-top: 20px;
+    }
+
+    .article-text h2 {
+        margin-top: 30px;
+        color: #fff;
+    }
+</style>
+
+<div class="section">
+    <h1>Sztuczna Inteligencja w Logistyce</h1>
+    
+    <div style="background: var(--bg-panel); padding: 20px; margin: 20px 0; border-radius: 10px;">
+        <p><strong>Wykres ogólnej wydajności procesów:</strong></p>
+        <div style="width: 100%; background: #333; height: 20px; border-radius: 10px; margin-top: 10px;">
+            <div style="width: 85%; background: var(--gradient-main); height: 100%; border-radius: 10px; text-align: right; padding-right: 10px; font-size: 0.7rem; line-height: 20px; color: white;">
+                +85% Efficiency
+            </div>
+        </div>
+    </div>
+
+    <div class="article-text">
+        <p>
+            W dobie globalizacji i rosnących wymagań konsumentów, tradycyjne metody zarządzania łańcuchem dostaw przestają wystarczać. 
+            <strong>Sztuczna Inteligencja (AI)</strong> staje się kluczowym silnikiem napędowym nowoczesnej logistyki, 
+            pozwalając na przetwarzanie ogromnych zbiorów danych w czasie rzeczywistym.
+        </p>
+
+        <h2>Optymalizacja tras i redukcja emisji</h2>
+        <p>
+            Dzięki algorytmom uczenia maszynowego, nasze systemy potrafią wyznaczać trasy przejazdu, biorąc pod uwagę nie tylko odległość, 
+            ale także zmienne warunki pogodowe, natężenie ruchu oraz godziny otwarcia magazynów. Pozwala to na redukcję pustych przebiegów 
+            oraz znaczące zmniejszenie śladu węglowego floty.
+        </p>
+
+        <div style="background: var(--bg-panel); padding: 20px; margin: 25px 0; border-radius: 10px;">
+            <p><strong>Porównanie kosztów operacyjnych (Najedź na słupki):</strong></p>
+            <div style="display: flex; align-items: flex-end; height: 120px; gap: 20px; border-bottom: 1px solid #444; padding-bottom: 5px;">
+                <div class="bar" style="flex: 1; background: #555; height: 90%; border-radius: 5px 5px 0 0;" title="Tradycyjne zarządzanie"></div>
+                <div class="bar" style="flex: 1; background: var(--gradient-main); height: 35%; border-radius: 5px 5px 0 0;" title="Zarządzanie AI"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.7rem; margin-top: 10px; color: #888;">
+                <span>Systemy tradycyjne</span>
+                <span>Wdrożenie AI</span>
+            </div>
+        </div>
+
+        <h2>Magazynowanie przyszłości</h2>
+        <p>
+            AI w magazynie to nie tylko roboty. To przede wszystkim systemy predykcyjne, które analizują historię zamówień i przewidują 
+            popyt na konkretne towary z wyprzedzeniem. Dzięki temu towary rotujące najszybciej są automatycznie lokowane najbliżej strefy wysyłki, 
+            co skraca proces kompletacji o kilkadziesiąt procent.
+        </p>
+
+        <blockquote>
+            "Integracja AI z naszym ekosystemem logistycznym pozwoliła nie tylko na oszczędności finansowe, ale przede wszystkim 
+            na uwolnienie potencjału naszych pracowników, którzy mogą teraz skupić się na zadaniach strategicznych, a nie operacyjnych."
+        </blockquote>
+
+        <h2>Podsumowanie</h2>
+        <p>
+            Wdrożenie sztucznej inteligencji to proces ciągły. Nasze modele są nieustannie trenowane na nowych danych, co sprawia, 
+            że z każdym miesiącem system staje się bardziej precyzyjny. W logistyce przyszłości nie pytamy już "czy" wdrożyć AI, 
+            ale "jak szybko" to zrobić, by nie zostać w tyle za konkurencją.
+        </p>
+    </div>
+
+    <div style="margin-top: 40px; border-top: 1px solid #333; padding-top: 20px;">
+        <a href="news.html" class="btn">Powrót do aktualności</a>
+    </div>
+</div>
