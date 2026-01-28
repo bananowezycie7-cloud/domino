@@ -13,11 +13,11 @@
         <aside class="sidebar">
             <div class="logo" style="margin-bottom: 40px;">NeonWMS</div>
             <ul class="sidebar-menu">
-                <li><a href="#" class="active">Panel Główny</a></li>
-                <li><a href="#">Produkty</a></li>
-                <li><a href="#">Wydania</a></li>
-                <li><a href="#">Klienci (CRM)</a></li>
-                <li><a href="#">Ustawienia</a></li>
+                <li><a href="demo.html" class="active">Panel Główny</a></li>
+                <li><a href="products.html">Produkty</a></li>
+                <li><a href="shipments.html">Wydania</a></li>
+                <li><a href="clients.html">Klienci (CRM)</a></li>
+                <li><a href="settings.html">Ustawienia</a></li>
             </ul>
         </aside>
 
@@ -97,8 +97,8 @@
         </main>
     </div>
 
-    <script type="module">
-        import { InventoryService } from './demo.js';
+   <script type="module">
+        import { Database } from './database.js';
 
         // Elementy DOM
         const tableBody = document.getElementById('inventoryTableBody');
@@ -109,23 +109,33 @@
 
         // Funkcja renderująca tabelę
         function renderTable() {
-            const data = InventoryService.getAll();
+            const data = Database.getAll('products');
             tableBody.innerHTML = '';
+
+            if(data.length === 0) {
+                tableBody.innerHTML = '<tr><td colspan="6" style="text-align:center; padding: 20px;">Brak produktów w magazynie</td></tr>';
+                return;
+            }
 
             data.forEach(item => {
                 const tr = document.createElement('tr');
-                // Klasa statusu
-                const statusClass = item.status === 'ok' ? 'status-ok' : 'status-low';
-                const statusLabel = item.status === 'ok' ? 'Dostępny' : 'Niski stan';
+                // Logika statusu
+                let statusClass = 'status-ok';
+                let statusLabel = 'Dostępny';
+                
+                if (parseInt(item.quantity) < 3) {
+                    statusClass = 'status-low';
+                    statusLabel = 'Niski stan';
+                }
 
                 tr.innerHTML = `
                     <td style="font-weight:600;">${item.name}</td>
                     <td>${item.category}</td>
                     <td>${item.quantity} szt.</td>
-                    <td>${item.price.toFixed(2)} zł</td>
+                    <td>${parseFloat(item.price).toFixed(2)} zł</td>
                     <td><span class="status-badge ${statusClass}">${statusLabel}</span></td>
                     <td>
-                        <button class="delete-btn" data-id="${item.id}" style="background:transparent; border:none; color:#ff4b91; cursor:pointer;">Usuń</button>
+                        <button class="delete-btn" data-id="${item.id}" style="background:transparent; border:none; color:#ff4b91; cursor:pointer; font-weight:bold;">X</button>
                     </td>
                 `;
                 tableBody.appendChild(tr);
@@ -135,18 +145,24 @@
             document.querySelectorAll('.delete-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     const id = parseInt(e.target.getAttribute('data-id'));
-                    InventoryService.delete(id);
-                    renderTable();
-                    updateStats();
+                    if(confirm("Usunąć produkt?")) {
+                        Database.delete('products', id);
+                        refreshView();
+                    }
                 });
             });
         }
 
         // Funkcja aktualizująca statystyki na górze
         function updateStats() {
-            const stats = InventoryService.getStats();
+            const stats = Database.getStats();
             totalItemsEl.innerText = stats.totalItems;
             totalValueEl.innerText = stats.totalValue + ' PLN';
+        }
+
+        function refreshView() {
+            renderTable();
+            updateStats();
         }
 
         // Obsługa formularza dodawania
@@ -156,31 +172,26 @@
             const newItem = {
                 name: document.getElementById('pName').value,
                 category: document.getElementById('pCat').value,
-                quantity: document.getElementById('pQty').value,
-                price: document.getElementById('pPrice').value
+                quantity: parseInt(document.getElementById('pQty').value),
+                price: parseFloat(document.getElementById('pPrice').value),
+                status: 'ok' 
             };
 
-            InventoryService.add(newItem);
+            Database.add('products', newItem);
             
-            // Reset formularza i odświeżenie widoku
             form.reset();
-            renderTable();
-            updateStats();
+            refreshView();
         });
 
         // Obsługa przycisku reset
         btnReset.addEventListener('click', () => {
-            if(confirm("Czy na pewno przywrócić dane domyślne?")) {
-                InventoryService.reset();
-                renderTable();
-                updateStats();
+            if(confirm("Czy na pewno zresetować całą bazę danych do ustawień fabrycznych?")) {
+                Database.reset();
             }
         });
 
-        // Inicjalizacja na start
-        renderTable();
-        updateStats();
-
+        // Start
+        refreshView();
     </script>
 </body>
 </html>
